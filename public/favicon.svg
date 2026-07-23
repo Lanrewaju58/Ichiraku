@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Steaming Lines (Branding colors) -->
+  <path d="M24 18 C 22.5 13, 25.5 10.5, 24 5" stroke="#FF3B30" stroke-width="3" stroke-linecap="round" />
+  <path d="M32 20 C 30.5 11.5, 34.5 9, 32 3" stroke="#FFB800" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M40 18 C 38.5 13, 41.5 10.5, 40 5" stroke="#00F5FF" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Chopsticks -->
+  <line x1="12" y1="12" x2="52" y2="22" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="8" y1="15" x2="48" y2="25" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Ceramic Bowl (Ichiraku Red) -->
+  <path d="M10 24 C 10 48, 22 56, 32 56 C 42 56, 54 48, 54 24 Z" fill="#FF3B30" />
+  
+  <!-- Inner Shadow / Soup surface -->
+  <ellipse cx="32" cy="24" rx="22" ry="4" fill="#FFB800" opacity="0.3" />
+
+  <!-- Bowl Rim highlight -->
+  <path d="M10 24 C 20 26.5, 44 26.5, 54 24" stroke="#FFB800" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Foot Ring -->
+  <path d="M22 56 C 22 60, 42 60, 42 56 Z" fill="#1F1A17" stroke="#FFB800" stroke-width="2.5" />
+</svg>

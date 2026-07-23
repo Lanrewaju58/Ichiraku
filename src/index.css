@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-primary: #FF3B30;
+  --color-secondary: #FFB800;
+  --color-accent: #00F5FF;
+  
+  /* Semantic Variables (Light Mode Default - Warm Japanese Paper/Bamboo style) */
+  --bg-color: #FAF9F6;           /* Traditional Washi Paper */
+  --surface-color: #FFFFFF;      /* Clean White */
+  --text-color: #1F1A17;         /* Deep Charcoal Ink */
+  --text-muted: #6B6059;         /* Softer Muted Brown-Gray */
+  --border-color: #E8E2D7;       /* Soft Sand border */
+  
+  /* Glow adjustments for light mode (subtle shadows instead of bright emissions) */
+  --text-glow-red: 0 1px 3px rgba(255, 59, 48, 0.2);
+  --text-glow-gold: 0 1px 3px rgba(255, 184, 0, 0.2);
+  --text-glow-cyan: 0 1px 3px rgba(0, 245, 255, 0.2);
+  
+  --border-glow-red: 0 2px 8px rgba(255, 59, 48, 0.1);
+  --border-glow-gold: 0 2px 8px rgba(255, 184, 0, 0.1);
+  --border-glow-cyan: 0 2px 8px rgba(0, 245, 255, 0.1);
+}
+
+.dark {
+  /* Semantic Variables (Dark Mode Override - Tokyo Alley Neon Style) */
+  --bg-color: #060608;           /* Deep Charcoal Black */
+  --surface-color: #0f0f13;      /* Dark Slate */
+  --text-color: #F5F5F7;         /* Off-White */
+  --text-muted: #8E8E93;         /* Medium Gray */
+  --border-color: #1E1E24;       /* Subtle Charcoal Line */
+  
+  /* Dynamic Neon Glows (Stronger emissions for dark backdrops) */
+  --text-glow-red: 0 0 5px rgba(255, 59, 48, 0.5), 
+                   0 0 10px rgba(255, 59, 48, 0.3), 
+                   0 0 20px rgba(255, 59, 48, 0.15);
+                   
+  --text-glow-gold: 0 0 5px rgba(255, 184, 0, 0.6), 
+                    0 0 10px rgba(255, 184, 0, 0.4), 
+                    0 0 20px rgba(255, 184, 0, 0.2);
+                    
+  --text-glow-cyan: 0 0 5px rgba(0, 245, 255, 0.6), 
+                    0 0 10px rgba(0, 245, 255, 0.4), 
+                    0 0 20px rgba(0, 245, 255, 0.2);
+
+  --border-glow-red: 0 0 6px rgba(255, 59, 48, 0.4),
+                      inset 0 0 4px rgba(255, 59, 48, 0.2);
+  --border-glow-gold: 0 0 6px rgba(255, 184, 0, 0.4),
+                       inset 0 0 4px rgba(255, 184, 0, 0.2);
+  --border-glow-cyan: 0 0 6px rgba(0, 245, 255, 0.4),
+                       inset 0 0 4px rgba(0, 245, 255, 0.2);
+}
+
+@theme {
+  --color-primary: #FF3B30;
+  --color-secondary: #FFB800;
+  --color-accent: #00F5FF;
+  --color-bg-base: var(--bg-color);
+  --color-surface-base: var(--surface-color);
+  --color-text-base: var(--text-color);
+  --color-text-muted: var(--text-muted);
+  --color-border-base: var(--border-color);
+  --font-serif: 'Shojumaru', display;
+  --font-sans: 'Shojumaru', display;
+}
+
+/* Custom Neon Glow Utilities using Semantic Variables */
+.text-neon-red {
+  text-shadow: var(--text-glow-red);
+}
+
+.text-neon-gold {
+  text-shadow: var(--text-glow-gold);
+}
+
+.text-neon-cyan {
+  text-shadow: var(--text-glow-cyan);
+}
+
+.border-neon-red {
+  box-shadow: var(--border-glow-red);
+  border-color: rgba(255, 59, 48, 0.8);
+}
+
+.border-neon-gold {
+  box-shadow: var(--border-glow-gold);
+  border-color: rgba(255, 184, 0, 0.8);
+}
+
+.border-neon-cyan {
+  box-shadow: var(--border-glow-cyan);
+  border-color: rgba(0, 245, 255, 0.8);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Base Styles */
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Animated Steaming Effect */
+@keyframes steam-rise {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scaleX(1.15) skewX(2deg);
+  }
+  85% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-40px) scaleX(1.3) skewX(-2deg);
+    opacity: 0;
+  }
+}
+
+.steam-path-1 {
+  animation: steam-rise 4s ease-in-out infinite;
+}
+
+.steam-path-2 {
+  animation: steam-rise 4.5s ease-in-out infinite 1.2s;
+}
+
+.steam-path-3 {
+  animation: steam-rise 3.8s ease-in-out infinite 2.3s;
+}
+
+/* Flicker Animation for Neon Signs */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  20%, 24%, 55% {
+    opacity: 0.3;
+    filter: none;
+  }
+}
+
+.neon-flicker-slow {
+  animation: neon-flicker 5s infinite alternate;
+}
+
+.neon-flicker-fast {
+  animation: neon-flicker 2.5s infinite alternate;
+}
+
+/* Custom utility for active items in menu */
+.menu-shadow-active {
+  box-shadow: 0 0 25px rgba(255, 184, 0, 0.15);
+}
+.dark .menu-shadow-active {
+  box-shadow: 0 0 25px rgba(255, 184, 0, 0.3);
+}
+
+/* Hide scrollbars for swipable tab list on mobile */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Tare Flow & Pitcher Pour Animations */
+@keyframes tare-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -40;
+  }
+}
+.tare-liquid-stream {
+  stroke-dasharray: 12, 6;
+  animation: tare-flow 1s linear infinite;
+}
+
+@keyframes pitcher-pour {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+.pitcher-pour-group {
+  animation: pitcher-pour 3s ease-in-out infinite;
+  transform-origin: 150px 180px;
+}
+
+@keyframes splash-ripple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+.splash-ripple-1 {
+  animation: splash-ripple 1.2s ease-out infinite;
+  transform-origin: 150px 250px;
+}
+.splash-ripple-2 {
+  animation: splash-ripple 1.2s ease-out infinite 0.6s;
+  transform-origin: 150px 250px;
+}
