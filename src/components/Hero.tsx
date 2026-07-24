@@ -74,55 +74,60 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
-        {/* Left Side: Neon & Text */}
-        <div className="lg:col-span-7 flex gap-6 md:gap-8 items-start">
-          {/* Vertical Neon Sign */}
+        {/* Left Side: Traditional Sign & Text */}
+        <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 sm:gap-6 md:gap-8 items-start">
+          {/* Vertical Shop Badge */}
           <div
             ref={neonRef}
-            className="flex flex-col items-center bg-surface-base/60 dark:bg-black/40 border border-primary/30 dark:border-primary/20 px-3 py-6 rounded-full select-none shadow-[0_4px_20px_rgba(255,59,48,0.08)] dark:shadow-[0_0_20px_rgba(255,59,48,0.15)] mt-2"
+            className="hidden sm:flex flex-col items-center bg-surface-base/80 dark:bg-black/50 border border-primary/30 px-3 py-5 rounded-sm select-none shadow-sm mt-1"
           >
-            <span className="text-xs uppercase tracking-widest text-primary/60 font-bold mb-2 [writing-mode:vertical-lr]">
-              TOKYO
+            <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2 [writing-mode:vertical-lr]">
+              SHINJUKU
             </span>
-            <div className="flex flex-col gap-3 font-serif text-3xl font-bold text-primary text-neon-red neon-flicker-slow">
+            <div className="flex flex-col gap-2.5 font-serif text-2xl font-bold text-primary">
               <span>ら</span>
               <span>ー</span>
               <span>め</span>
               <span>ん</span>
             </div>
-            <span className="text-[10px] text-accent dark:text-accent mt-3 font-bold select-none font-sans">
-              BAR
+            <span className="text-[9px] text-secondary mt-2 font-bold tracking-widest select-none">
+              TOKYO
             </span>
           </div>
 
           {/* Core Content */}
           <div className="flex-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 mb-4 text-xs font-semibold uppercase tracking-widest text-primary">
+              <span>一楽</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span>Shinjuku Stool Bar</span>
+            </div>
             <h1
               ref={headlineRef}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-base leading-[1.12] mb-5"
             >
-              CRAFTED FOR <br />
-              <span className="text-secondary text-neon-gold">THE SOUL</span>. <br />
-              SLURPED IN RESPECT.
+              AUTHENTIC SHINJUKU <br />
+              <span className="text-secondary">TONKOTSU</span>. <br />
+              CRAFTED OVER 20 HOURS.
             </h1>
             <p
               ref={textRef}
-              className="text-lg text-text-muted max-w-lg mb-8 leading-relaxed font-light"
+              className="text-base sm:text-lg text-text-muted max-w-lg mb-8 leading-relaxed font-normal"
             >
-              In our shop, we simmer authentic Tonkotsu broth for over 20 hours to extract every layer of umami. Pull up a stool, breathe in the steam, and slurp away.
+              Hand-crafted daily in the backstreets of Tokyo. We simmer rich pork bone broth for 20 hours to extract deep umami, paired with house-made kansui noodles and slow-braised chashu pork. Take a seat at our 12-stool counter.
             </p>
             <div ref={ctaRef} className="flex flex-wrap gap-4">
               <a
                 href="#menu"
-                className="px-8 py-3.5 bg-primary text-white font-medium uppercase tracking-widest text-xs transition-all duration-300 hover:bg-primary/90 hover:scale-[1.02] border-neon-red cursor-pointer"
+                className="px-8 py-3.5 bg-primary text-white font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-primary/90 hover:scale-[1.02] shadow-sm cursor-pointer"
               >
-                View Menu
+                Explore Menu
               </a>
               <a
                 href="#location"
-                className="px-8 py-3.5 border border-border-base hover:border-primary dark:hover:border-accent text-text-base hover:text-primary dark:hover:text-accent font-medium uppercase tracking-widest text-xs transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                className="px-8 py-3.5 border border-border-base hover:border-primary text-text-base hover:text-primary font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
-                Find Us
+                Reserve Stool
               </a>
             </div>
           </div>

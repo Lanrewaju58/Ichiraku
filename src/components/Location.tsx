@@ -172,44 +172,44 @@ export default function Location() {
                   {/* Name Input */}
                   <div className="space-y-1.5 relative">
                     <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold flex items-center gap-1">
-                      <User className="w-3 h-3" /> Full Name
+                      <User className="w-3 h-3 text-primary" /> Full Name
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Musashi Miyamoto"
-                      className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-primary transition-all duration-300 rounded-none focus:shadow-[0_0_10px_rgba(255,59,48,0.15)] focus:dark:shadow-[0_0_10px_rgba(255,59,48,0.15)]"
+                      placeholder="Kenji Sato"
+                      className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-primary transition-all duration-300 rounded-none"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div className="space-y-1.5 relative">
                     <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold flex items-center gap-1">
-                      <Mail className="w-3 h-3" /> Email Address
+                      <Mail className="w-3 h-3 text-primary" /> Email Address
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="musashi@samurai.jp"
-                      className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-primary transition-all duration-300 rounded-none focus:shadow-[0_0_10px_rgba(255,59,48,0.15)] focus:dark:shadow-[0_0_10px_rgba(255,59,48,0.15)]"
+                      placeholder="kenji@tokyo.jp"
+                      className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-primary transition-all duration-300 rounded-none"
                     />
                   </div>
 
                   {/* Guests & Date & Time Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {/* Guests Select */}
                     <div className="space-y-1.5">
                       <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold flex items-center gap-1">
-                        <Users className="w-3 h-3" /> Guests
+                        <Users className="w-3 h-3 text-secondary" /> Guests
                       </label>
                       <select
                         value={formData.guests}
                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                        className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none focus:shadow-[0_0_10px_rgba(255,184,0,0.15)] dark:focus:shadow-[0_0_10px_rgba(255,184,0,0.15)]"
+                        className="w-full bg-bg-base/60 border border-border-base px-3 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none cursor-pointer"
                       >
                         <option value="1">1 Stool</option>
                         <option value="2">2 Stools</option>
@@ -220,27 +220,27 @@ export default function Location() {
                     {/* Date Picker */}
                     <div className="space-y-1.5">
                       <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold flex items-center gap-1">
-                        <Calendar className="w-3 h-3" /> Date
+                        <Calendar className="w-3 h-3 text-secondary" /> Date
                       </label>
                       <input
                         type="date"
                         required
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none focus:shadow-[0_0_10px_rgba(255,184,0,0.15)] dark:focus:shadow-[0_0_10px_rgba(255,184,0,0.15)]"
+                        className="w-full bg-bg-base/60 border border-border-base px-3 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none cursor-pointer"
                       />
                     </div>
 
                     {/* Time Picker */}
                     <div className="space-y-1.5">
                       <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold flex items-center gap-1">
-                        <Clock className="w-3 h-3" /> Time
+                        <Clock className="w-3 h-3 text-secondary" /> Time
                       </label>
                       <select
                         required
                         value={formData.time}
                         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                        className="w-full bg-bg-base/60 border border-border-base px-4 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none focus:shadow-[0_0_10px_rgba(255,184,0,0.15)] dark:focus:shadow-[0_0_10px_rgba(255,184,0,0.15)]"
+                        className="w-full bg-bg-base/60 border border-border-base px-3 py-3 text-sm text-text-base focus:outline-none focus:border-secondary transition-all duration-300 rounded-none cursor-pointer"
                       >
                         <option value="">Select Time</option>
                         <option value="17:00">5:00 PM</option>

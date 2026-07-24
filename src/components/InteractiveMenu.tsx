@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { Sparkles, Activity, Eye, Zap } from 'lucide-react';
+import { Utensils, Flame, Wheat, Egg } from 'lucide-react';
 
 interface Ingredient {
   name: string;
@@ -227,58 +227,55 @@ export default function InteractiveMenu() {
       ref={containerRef}
       className="py-16 md:py-24 bg-bg-base border-t border-border-base transition-colors duration-300 relative overflow-hidden"
     >
-      {/* Background decoration elements */}
-      <div className="absolute top-10 right-10 text-[10rem] font-bold text-text-base/[0.02] dark:text-white/[0.02] select-none font-serif tracking-tighter">
-        MENU
-      </div>
+      {/* Ambient background glow */}
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent/3 rounded-full filter blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <span className="text-xs uppercase tracking-widest text-primary font-bold inline-flex items-center gap-1.5 mb-2">
-            <Sparkles className="w-3.5 h-3.5" /> Signature Bowls
+            <Utensils className="w-3.5 h-3.5" /> Signature Menu
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base">
-            CHOOSE YOUR <span className="text-secondary">FLAVOR</span>
+            SIGNATURE <span className="text-secondary">BOWLS</span>
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto mt-4" />
         </div>
 
         {/* Tab Buttons Selector */}
-        <div className="flex justify-start md:justify-center gap-3 md:gap-6 mb-12 overflow-x-auto scrollbar-none flex-nowrap pb-4 px-4 -mx-6 md:mx-0">
+        <div className="flex justify-start sm:justify-center items-center gap-2.5 sm:gap-4 mb-12 overflow-x-auto scrollbar-none flex-nowrap sm:flex-wrap pb-3 px-2 -mx-4 sm:mx-0">
           {BOWLS_DATA.map((bowl, idx) => {
             const isActive = idx === selectedIdx;
             return (
               <button
                 key={bowl.id}
                 onClick={() => setSelectedIdx(idx)}
-                className={`px-5 py-2.5 border text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-none cursor-pointer ${
+                className={`px-4 sm:px-6 py-3 border text-xs uppercase tracking-wider font-semibold transition-all duration-300 rounded-none cursor-pointer shrink-0 flex items-center gap-2 ${
                   isActive
-                    ? `bg-surface-base text-text-base border-${bowl.id === 'tonkotsu' ? 'secondary' : bowl.id === 'spicy-miso' ? 'primary' : 'accent'} menu-shadow-active scale-105 ${bowl.glowClass}`
-                    : 'bg-transparent text-text-muted border-border-base hover:text-text-base hover:border-border-base/80'
+                    ? 'bg-primary text-white border-primary shadow-md scale-[1.02]'
+                    : 'bg-surface-base/80 text-text-muted border-border-base hover:text-text-base hover:border-primary/50'
                 }`}
               >
-                <span className="font-serif mr-1.5 text-sm">{bowl.jpName}</span>
-                {bowl.name}
+                <span className="font-serif text-sm font-bold">{bowl.jpName}</span>
+                <span>{bowl.name}</span>
               </button>
             );
           })}
         </div>
 
         {/* Core Layout: Left Side Bowl, Right Side Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[480px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[480px]">
           
           {/* Bowl Column */}
-          <div className="lg:col-span-5 flex justify-center items-center relative">
+          <div className="lg:col-span-5 flex justify-center items-center relative pt-10 pb-4">
             {/* Pulsing Backlight */}
             <div
-              className="absolute w-[280px] h-[280px] rounded-full filter blur-[80px] opacity-20 transition-all duration-700 pointer-events-none"
+              className="absolute w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full filter blur-[80px] opacity-20 transition-all duration-700 pointer-events-none"
               style={{ backgroundColor: activeBowl.accentColor }}
             />
 
-            <div ref={bowlWrapperRef} className="relative w-full max-w-[320px] md:max-w-[380px] select-none">
+            <div ref={bowlWrapperRef} className="relative w-full max-w-[290px] sm:max-w-[340px] md:max-w-[380px] select-none">
               {/* Steaming Lines */}
               <svg
                 className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-20 overflow-visible pointer-events-none"
@@ -456,59 +453,59 @@ export default function InteractiveMenu() {
                   </linearGradient>
                 </defs>
               </svg>
-
-              {/* Price Tag Floating */}
-              <div
-                className="absolute top-1/2 -right-4 bg-surface-base border px-4 py-2 flex flex-col items-center justify-center font-bold"
-                style={{ borderColor: activeBowl.accentColor, boxShadow: `0 4px 15px ${activeBowl.accentColor}25` }}
-              >
-                <span className="text-[10px] text-text-muted uppercase tracking-widest">Price</span>
-                <span className="text-xl text-text-base font-serif">{activeBowl.price}</span>
-              </div>
             </div>
           </div>
 
           {/* Details Column */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Descriptive Content */}
-            <div ref={infoRef} className="mb-8">
-              <span className="text-xs uppercase tracking-widest text-text-muted font-semibold">
-                Bowl Profile
-              </span>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-text-base mt-1 mb-4">
-                {activeBowl.name}
+            <div ref={infoRef} className="mb-6">
+              <div className="flex items-center justify-between gap-4 mb-2 flex-wrap">
+                <span className="text-xs uppercase tracking-widest text-primary font-bold">
+                  Bowl Profile
+                </span>
+                <span
+                  className="px-3.5 py-1 bg-surface-base border text-sm font-serif font-bold text-text-base shadow-sm"
+                  style={{ borderColor: activeBowl.accentColor }}
+                >
+                  {activeBowl.price}
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-base mt-1 mb-3 flex items-baseline gap-2.5 flex-wrap">
+                <span>{activeBowl.name}</span>
+                <span className="text-secondary font-serif font-normal text-xl sm:text-2xl">{activeBowl.jpName}</span>
               </h3>
-              <p className="text-text-muted font-light leading-relaxed mb-6">
+              <p className="text-text-muted font-normal leading-relaxed mb-6 text-sm sm:text-base">
                 {activeBowl.description}
               </p>
 
               {/* Specs Table */}
-              <div className="border border-border-base bg-surface-base p-5 grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div>
+              <div className="border border-border-base bg-surface-base p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 overflow-hidden">
+                <div className="min-w-0">
                   <span className="text-[10px] uppercase tracking-widest text-text-muted block mb-1">
                     Broth Base
                   </span>
-                  <span className="text-sm font-semibold text-text-base flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5" style={{ color: activeBowl.accentColor }} />
-                    {activeBowl.broth}
+                  <span className="text-xs sm:text-sm font-semibold text-text-base flex items-center gap-1.5 leading-snug break-words">
+                    <Flame className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span>{activeBowl.broth}</span>
                   </span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] uppercase tracking-widest text-text-muted block mb-1">
                     Noodle Type
                   </span>
-                  <span className="text-sm font-semibold text-text-base flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5" style={{ color: activeBowl.accentColor }} />
-                    {activeBowl.noodle}
+                  <span className="text-xs sm:text-sm font-semibold text-text-base flex items-center gap-1.5 leading-snug break-words">
+                    <Wheat className="w-3.5 h-3.5 text-secondary shrink-0" />
+                    <span>{activeBowl.noodle}</span>
                   </span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] uppercase tracking-widest text-text-muted block mb-1">
                     Ajitama Egg
                   </span>
-                  <span className="text-sm font-semibold text-text-base flex items-center gap-1.5">
-                    <Eye className="w-3.5 h-3.5" style={{ color: activeBowl.accentColor }} />
-                    {activeBowl.egg}
+                  <span className="text-xs sm:text-sm font-semibold text-text-base flex items-center gap-1.5 leading-snug break-words">
+                    <Egg className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <span>{activeBowl.egg}</span>
                   </span>
                 </div>
               </div>

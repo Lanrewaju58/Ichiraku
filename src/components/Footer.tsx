@@ -58,8 +58,8 @@ export default function Footer() {
           <p className="text-xs text-text-muted">
             © {new Date().getFullYear()} Ramen Bar Ichiraku. All rights reserved.
           </p>
-          <p className="text-[10px] text-text-muted/60 tracking-wider">
-            Designed for culinary purists and tech enthusiasts alike. Shinjuku, Tokyo.
+          <p className="text-[10px] text-text-muted/70 tracking-wider">
+            Crafted with honor for culinary purists. Shinjuku, Tokyo.
           </p>
         </div>
 

@@ -149,9 +149,9 @@ export default function CraftSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
-        <div id="craft-header" className="text-center mb-20">
+        <div id="craft-header" className="text-center mb-16 md:mb-20">
           <span className="text-xs uppercase tracking-widest text-primary font-bold inline-flex items-center gap-1.5 mb-2">
-            <ChefHat className="w-3.5 h-3.5" /> Culinary Science
+            <ChefHat className="w-3.5 h-3.5" /> Handcrafted Tradition
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base">
             THE THREE <span className="text-secondary">PILLARS</span> OF CRAFT
